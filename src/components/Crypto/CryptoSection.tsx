@@ -1,37 +1,50 @@
-import React, { useState } from 'react';
-import { ShieldCheck, Wallet, Copy, Globe, Lock, Activity, Zap } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import { ShieldCheck, Wallet, Copy, Lock, Activity, Zap } from 'lucide-react';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+import { cn } from '../../utils/cn';
 
 const CryptoSection: React.FC = () => {
   const [amount, setAmount] = useState('5000');
+  const [copied, setCopied] = useState(false);
   const PRICE = 0.85;
+  const CONTRACT_ADDRESS = '0x742d...4438f810';
+
+  const { elementRef, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
+  const handleCopyAddress = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  }, []);
+
+  const handleAmountChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === '' || (!isNaN(Number(value)) && Number(value) >= 0)) {
+      setAmount(value);
+    }
+  }, []);
+
+  const calculatedAmount = amount ? (parseFloat(amount) / PRICE).toFixed(2) : '0.00';
 
   return (
-    <section className="bg-white text-brand-navy py-32 border-t border-gray-200 overflow-hidden">
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
-        }
-        @keyframes shine {
-          0% { background-position: -100% 0; }
-          100% { background-position: 200% 0; }
-        }
-        .coin-float { animation: float 6s ease-in-out infinite; }
-        .coin-shine { 
-          background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.6) 50%, transparent 70%);
-          background-size: 200% 100%;
-          animation: shine 4s infinite linear;
-        }
-        .text-gold-metallic {
-          background: linear-gradient(to bottom, #FCD34D, #B45309);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      `}</style>
-      
-      <div className="container mx-auto px-8">
+    <section 
+      ref={elementRef as React.RefObject<HTMLElement>}
+      className="bg-white text-brand-navy py-20 sm:py-32 border-t border-gray-200 overflow-hidden"
+      aria-labelledby="crypto-heading"
+    >
+      <div className={cn(
+        'container mx-auto px-4 sm:px-6 lg:px-8 transition-opacity duration-1000',
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      )}>
         
-        <div className="flex flex-col xl:flex-row gap-20 items-center">
+        <div className="flex flex-col xl:flex-row gap-12 lg:gap-20 items-center">
           {/* Left: Editorial Info */}
           <div className="xl:w-1/3 relative z-10">
             <div className="flex items-center gap-3 mb-8">
@@ -39,7 +52,7 @@ const CryptoSection: React.FC = () => {
               <span className="text-xs font-bold tracking-[0.25em] uppercase text-brand-gold">Finanzas de Impacto</span>
             </div>
             
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+            <h2 id="crypto-heading" className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
               PRODES <br/>
               <span className="text-gold-metallic">TOKEN $PDS</span>
             </h2>
@@ -70,12 +83,15 @@ const CryptoSection: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-                 <button className="px-8 py-4 bg-brand-navy text-white text-xs font-bold tracking-[0.15em] uppercase hover:bg-slate-800 transition-colors">
+                 <button 
+                   className="px-8 py-4 bg-brand-navy text-white text-xs font-bold tracking-[0.15em] uppercase hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-navy focus:ring-offset-2 rounded"
+                   aria-label="Descargar Whitepaper versión 2.0"
+                 >
                     Whitepaper V.2.0
                  </button>
-                 <div className="px-8 py-4 border border-slate-200 text-slate-500 text-xs font-mono flex items-center gap-3">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    Audit Passed
+                 <div className="px-8 py-4 border border-slate-200 text-slate-500 text-xs font-mono flex items-center gap-3" role="status" aria-label="Auditoría aprobada">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" aria-hidden="true"></span>
+                    <span>Audit Passed</span>
                  </div>
             </div>
           </div>
@@ -127,7 +143,7 @@ const CryptoSection: React.FC = () => {
                                             <defs>
                                                 <path id="textCircle" d="M 50, 50 m -34, 0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0" />
                                             </defs>
-                                            <text fontSize="4.5" fontClass="font-mono" fontWeight="bold" fill="#C5A059" letterSpacing="1.4">
+                                            <text fontSize="4.5" fontWeight="bold" fill="#C5A059" letterSpacing="1.4" className="font-mono">
                                                 <textPath href="#textCircle" className="uppercase fill-[#C5A059]">
                                                    • Fundaprodes Network • Real World Assets • Verified •
                                                 </textPath>
@@ -188,10 +204,13 @@ const CryptoSection: React.FC = () => {
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <input 
-                                      type="number" 
+                                      type="text" 
+                                      inputMode="decimal"
                                       value={amount}
-                                      onChange={(e) => setAmount(e.target.value)}
-                                      className="bg-transparent text-2xl text-white font-mono w-full outline-none"
+                                      onChange={handleAmountChange}
+                                      className="bg-transparent text-2xl text-white font-mono w-full outline-none focus:ring-2 focus:ring-brand-gold rounded px-2"
+                                      aria-label="Cantidad en USDT"
+                                      placeholder="0"
                                     />
                                     <span className="bg-[#26A17B] text-white text-[10px] font-bold px-2 py-1 rounded">USDT</span>
                                 </div>
@@ -209,13 +228,18 @@ const CryptoSection: React.FC = () => {
                                     <span>Tax: 0.5%</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                    <span className="text-2xl text-brand-gold font-mono">{(parseFloat(amount) / PRICE).toFixed(2)}</span>
+                                    <span className="text-2xl text-brand-gold font-mono" aria-label={`Recibirás ${calculatedAmount} PDS`}>
+                                      {calculatedAmount}
+                                    </span>
                                     <span className="bg-brand-gold text-brand-navy text-[10px] font-bold px-2 py-1 rounded border border-brand-gold">PDS</span>
                                 </div>
                             </div>
 
-                            <button className="w-full mt-6 py-4 bg-gradient-to-r from-[#C5A059] to-[#B45309] hover:brightness-110 text-white font-bold tracking-[0.15em] uppercase transition-all shadow-lg shadow-orange-900/20 flex items-center justify-center gap-3 group">
-                                <Wallet size={16} className="group-hover:scale-110 transition-transform" />
+                            <button 
+                              className="w-full mt-6 py-4 bg-gradient-to-r from-[#C5A059] to-[#B45309] hover:brightness-110 text-white font-bold tracking-[0.15em] uppercase transition-all shadow-lg shadow-orange-900/20 flex items-center justify-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 focus:ring-offset-[#0B1120] rounded"
+                              aria-label="Ejecutar intercambio de USDT a PDS"
+                            >
+                                <Wallet size={16} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
                                 Ejecutar Swap
                             </button>
 
@@ -234,10 +258,15 @@ const CryptoSection: React.FC = () => {
                       <Lock size={12} />
                       <span className="uppercase tracking-wider">Liquidez Bloqueada 5 Años</span>
                    </div>
-                   <div className="bg-black/30 px-4 py-2 rounded border border-white/5 flex items-center gap-3 text-slate-400 font-mono text-xs hover:text-brand-gold hover:border-brand-gold/50 cursor-pointer transition-all group">
-                      <span>0x742d...4438f810</span>
-                      <Copy size={12} className="group-hover:text-white" />
-                   </div>
+                   <button
+                     onClick={handleCopyAddress}
+                     className="bg-black/30 px-4 py-2 rounded border border-white/5 flex items-center gap-3 text-slate-400 font-mono text-xs hover:text-brand-gold hover:border-brand-gold/50 cursor-pointer transition-all group focus:outline-none focus:ring-2 focus:ring-brand-gold"
+                     aria-label={copied ? 'Dirección copiada' : 'Copiar dirección del contrato'}
+                     aria-live="polite"
+                   >
+                      <span>{CONTRACT_ADDRESS}</span>
+                      <Copy size={12} className={cn('group-hover:text-white transition-colors', copied && 'text-green-400')} aria-hidden="true" />
+                   </button>
                 </div>
 
               </div>

@@ -1,16 +1,38 @@
-import React from 'react';
-import { CreditCard, Bot, Users, ArrowRight, Shield, Cpu, Send, Wifi } from 'lucide-react';
+import React, { useCallback } from 'react';
+import { CreditCard, Bot, ArrowRight, Shield, Cpu, Send, Wifi } from 'lucide-react';
 import Logo from '../Layout/Logo';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+import { cn } from '../../utils/cn';
 
 const Ecosystem: React.FC = () => {
+  const { elementRef, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
+  const handleTelegramClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // En producción, aquí se abriría el enlace real de Telegram
+    window.open('#', '_blank', 'noopener,noreferrer');
+  }, []);
+
   return (
-    <section className="py-32 bg-slate-50 border-t border-gray-200 overflow-hidden">
-      <div className="container mx-auto px-8">
+    <section 
+      ref={elementRef as React.RefObject<HTMLElement>}
+      className="py-20 sm:py-32 bg-slate-50 border-t border-gray-200 overflow-hidden"
+      aria-labelledby="ecosystem-heading"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center mb-20 max-w-4xl mx-auto">
-          <span className="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Ecosistema Integral</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6 leading-tight">
-            Más que una Fundación. <br/>
+        <div className={cn(
+          'text-center mb-12 lg:mb-20 max-w-4xl mx-auto transition-opacity duration-1000',
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        )}>
+          <span className="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+            Ecosistema Integral
+          </span>
+          <h2 id="ecosystem-heading" className="text-4xl md:text-5xl font-bold text-brand-navy mb-6 leading-tight">
+            Más que una Fundación. <br className="hidden md:block"/>
             Una <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-slate-500">Economía Digital Autónoma.</span>
           </h2>
           <p className="text-slate-500 text-lg font-light leading-relaxed">
@@ -109,9 +131,14 @@ const Ecosystem: React.FC = () => {
                    <p className="text-slate-500 font-light leading-relaxed mb-6">
                       Únete a nuestro canal oficial de Telegram. Acceso directo a la directiva, votaciones DAO sobre nuevos proyectos y actualizaciones exclusivas.
                    </p>
-                   <a href="#" className="inline-flex items-center gap-3 px-6 py-3 bg-brand-navy hover:bg-slate-800 text-white text-xs font-bold tracking-[0.15em] uppercase transition-all rounded-sm group">
+                   <a 
+                     href="#" 
+                     onClick={handleTelegramClick}
+                     className="inline-flex items-center gap-3 px-6 py-3 bg-brand-navy hover:bg-slate-800 text-white text-xs font-bold tracking-[0.15em] uppercase transition-all rounded-sm group focus:outline-none focus:ring-2 focus:ring-brand-navy focus:ring-offset-2"
+                     aria-label="Unirse al canal de Telegram de FUNDAPRODES"
+                   >
                       Unirme al Canal
-                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                    </a>
                 </div>
              </div>
