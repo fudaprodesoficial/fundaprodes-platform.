@@ -4,6 +4,7 @@ import { NavItem } from '../../types';
 import Logo from './Logo';
 import { useWallet } from '../../hooks/useWallet';
 import LanguageSelector from '../common/LanguageSelector';
+import QRCode from '../common/QRCode';
 import { cn } from '../../utils/cn';
 
 interface NavbarProps {
@@ -99,6 +100,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
           
           <LanguageSelector />
           
+          <QRCode className="hidden lg:flex" />
+          
           <button
             onClick={handleWalletClick}
             disabled={isLoading}
@@ -153,8 +156,9 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               {item.label}
             </a>
           ))}
-          <div className="pt-4 border-t border-white/10">
+          <div className="pt-4 border-t border-white/10 space-y-4">
             <LanguageSelector />
+            <QRCode className="w-full" />
           </div>
           <button
             onClick={handleWalletClick}

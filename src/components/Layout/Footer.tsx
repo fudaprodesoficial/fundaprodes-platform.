@@ -2,6 +2,7 @@ import React from 'react';
 import { Twitter, Instagram, Linkedin, Send, Mail, MapPin, Phone } from 'lucide-react';
 import Logo from './Logo';
 import VisitStats from '../common/VisitStats';
+import QRCode from '../common/QRCode';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -16,8 +17,9 @@ const Footer: React.FC = () => {
               Fundación Dominicana Pro-Ayuda y Desarrollo a la Mujer Desamparada. 
               Entidad sin fines de lucro registrada bajo el RNC 4-01-51387-2 y Decreto 145-96.
             </p>
-            <div className="mt-6 lg:mt-8">
+            <div className="mt-6 lg:mt-8 flex flex-col sm:flex-row gap-4">
               <VisitStats className="max-w-xs" />
+              <QRCode className="self-start" />
             </div>
             <nav className="flex gap-4 mt-6 lg:mt-8" aria-label="Redes sociales">
               <a 
