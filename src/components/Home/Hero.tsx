@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
 import LazyImage from '../common/LazyImage';
+import Clock from '../common/Clock';
+import VisitStats from '../common/VisitStats';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { cn } from '../../utils/cn';
 
@@ -74,6 +76,12 @@ const Hero: React.FC = () => {
         </div>
       </div>
       
+      {/* Premium Widgets - Top Right */}
+      <div className="absolute top-20 right-4 sm:right-6 lg:right-8 z-20 flex flex-col gap-3 hidden lg:flex">
+        <Clock />
+        <VisitStats />
+      </div>
+
       {/* Financial Ticker aesthetic at bottom */}
       <div className="absolute bottom-0 w-full border-t border-white/10 bg-brand-navy/50 backdrop-blur-sm py-4 hidden md:flex justify-between px-4 sm:px-6 lg:px-8 text-xs text-gray-400 font-mono" aria-label="Información del mercado">
         <div className="flex gap-4 lg:gap-8 flex-wrap">

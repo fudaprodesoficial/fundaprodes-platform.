@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { NavItem } from '../../types';
 import Logo from './Logo';
 import { useWallet } from '../../hooks/useWallet';
+import LanguageSelector from '../common/LanguageSelector';
 import { cn } from '../../utils/cn';
 
 interface NavbarProps {
@@ -84,7 +85,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-12">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -95,6 +96,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               {item.label}
             </a>
           ))}
+          
+          <LanguageSelector />
           
           <button
             onClick={handleWalletClick}
