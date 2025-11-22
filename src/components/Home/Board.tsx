@@ -47,10 +47,10 @@ const Board: React.FC = () => {
           <h4 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-xs mb-4">
             Junta Directiva
           </h4>
-          <h2 id="board-heading" className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <h2 id="board-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight px-4">
             Nuestro Consejo Directivo
           </h2>
-          <p className="text-lg text-slate-600 font-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 font-light max-w-3xl mx-auto leading-relaxed px-4">
             La Fundación Dominicana Pro-Ayuda y Desarrollo a la Mujer Desamparada (FUNDAPRODES) 
             está constituida por un grupo de personas que sienten la necesidad de aglutinar sus 
             capacidades y esfuerzos para de manera mancomunada conformar un Consejo Directivo 
@@ -58,12 +58,12 @@ const Board: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16">
           {boardMembers.map((member, index) => (
             <article
               key={index}
               className={cn(
-                'bg-white p-8 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100',
+                'bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100',
                 'focus-within:ring-2 focus-within:ring-brand-gold focus-within:shadow-lg',
                 'transition-opacity duration-700',
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -72,15 +72,15 @@ const Board: React.FC = () => {
               tabIndex={0}
               aria-label={`${member.name}, ${member.position}`}
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center shrink-0">
-                  <Users className="w-6 h-6 text-brand-gold" aria-hidden="true" />
+              <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-gold/10 flex items-center justify-center shrink-0">
+                  <Users className="w-5 h-5 sm:w-6 sm:h-6 text-brand-gold" aria-hidden="true" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-brand-navy mb-1">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-navy mb-1 break-words">
                     {member.name}
                   </h3>
-                  <p className="text-sm font-semibold text-brand-gold uppercase tracking-wider">
+                  <p className="text-xs sm:text-sm font-semibold text-brand-gold uppercase tracking-wider">
                     {member.position}
                   </p>
                 </div>
@@ -91,26 +91,26 @@ const Board: React.FC = () => {
 
         {/* Equipo de Asesores */}
         <div className={cn(
-          'bg-white p-8 lg:p-12 rounded-lg shadow-sm border border-gray-100 transition-opacity duration-1000 delay-500',
+          'bg-white p-6 sm:p-8 lg:p-12 rounded-lg shadow-sm border border-gray-100 transition-opacity duration-1000 delay-500',
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         )}>
-          <div className="flex items-start gap-6">
-            <div className="w-16 h-16 rounded-full bg-brand-navy/5 flex items-center justify-center shrink-0">
-              <Heart className="w-8 h-8 text-brand-gold" aria-hidden="true" />
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-brand-navy/5 flex items-center justify-center shrink-0">
+              <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-brand-gold" aria-hidden="true" />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-3">
-                <Briefcase className="w-6 h-6 text-brand-gold" aria-hidden="true" />
+              <h3 className="text-xl sm:text-2xl font-bold text-brand-navy mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3">
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-brand-gold" aria-hidden="true" />
                 Nuestro Equipo
               </h3>
-              <p className="text-slate-600 font-light leading-relaxed mb-4">
+              <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed mb-3 sm:mb-4">
                 Además del Consejo Directivo, FUNDAPRODES cuenta con un grupo de asesores, 
                 consultores y planificadores de proyectos que han sido en parte responsables, 
                 con su participación relevante, en el desarrollo y continuidad de la labor social 
                 de la fundación en sus 29 años de existencia.
               </p>
-              <p className="text-slate-600 font-light leading-relaxed">
-                <Award className="w-5 h-5 text-brand-gold inline-block mr-2" aria-hidden="true" />
+              <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-brand-gold inline-block mr-2" aria-hidden="true" />
                 <strong className="text-brand-navy">Todos realizan sus funciones ad-honorem</strong> y su rol principal 
                 es colaborar con ideas, acciones, aportes, asistencia técnica y planificación en la 
                 elaboración de los proyectos especiales que constituyen el eje estratégico de acción 
@@ -122,10 +122,10 @@ const Board: React.FC = () => {
 
         {/* Lema */}
         <div className={cn(
-          'mt-12 text-center transition-opacity duration-1000 delay-700',
+          'mt-8 sm:mt-12 text-center transition-opacity duration-1000 delay-700 px-4',
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         )}>
-          <p className="text-xl md:text-2xl font-serif italic text-brand-navy">
+          <p className="text-lg sm:text-xl md:text-2xl font-serif italic text-brand-navy">
             "Fomentando el derecho de la mujer dominicana a vivir con dignidad"
           </p>
         </div>

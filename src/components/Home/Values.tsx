@@ -35,15 +35,15 @@ const Values: React.FC = () => {
           'flex flex-col md:flex-row justify-between items-end mb-12 lg:mb-20 border-b border-white/10 pb-8 transition-opacity duration-1000',
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         )}>
-          <h2 id="values-heading" className="text-4xl font-bold">
+          <h2 id="values-heading" className="text-3xl sm:text-4xl font-bold">
             VALORES FUNDAMENTALES
           </h2>
-          <span className="text-brand-gold text-sm tracking-[0.2em] uppercase mt-4 md:mt-0">
+          <span className="text-brand-gold text-xs sm:text-sm tracking-[0.2em] uppercase mt-4 md:mt-0">
             Código de Ética
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 lg:gap-x-12 gap-y-12 lg:gap-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 sm:gap-x-8 lg:gap-x-12 gap-y-8 sm:gap-y-12 lg:gap-y-16">
           {values.map((value, index) => (
             <article
               key={value.id}
@@ -56,13 +56,13 @@ const Values: React.FC = () => {
               tabIndex={0}
               aria-label={`Valor: ${value.title}`}
             >
-              <span className="block text-xs text-brand-gold mb-4 font-mono" aria-hidden="true">
+              <span className="block text-xs text-brand-gold mb-3 sm:mb-4 font-mono" aria-hidden="true">
                 0{value.id}
               </span>
-              <h3 className="text-xl font-bold mb-2 group-hover:text-brand-gold transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-brand-gold transition-colors">
                 {value.title}
               </h3>
-              <p className="text-gray-400 font-light text-sm leading-relaxed border-l border-white/10 pl-4 group-hover:border-brand-gold transition-colors">
+              <p className="text-gray-400 font-light text-xs sm:text-sm leading-relaxed border-l border-white/10 pl-3 sm:pl-4 group-hover:border-brand-gold transition-colors">
                 {value.description}
               </p>
             </article>

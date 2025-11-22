@@ -57,24 +57,24 @@ const LanguageSelector: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'flex items-center gap-2 px-4 py-2 bg-brand-navy/95 backdrop-blur-sm',
+          'flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-brand-navy/95 backdrop-blur-sm',
           'border border-white/10 rounded-lg shadow-xl',
           'hover:bg-brand-navy hover:border-brand-gold/50',
           'transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-gold',
-          'group'
+          'group w-full md:w-auto'
         )}
         aria-label="Seleccionar idioma"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <Globe className="w-5 h-5 text-brand-gold group-hover:rotate-12 transition-transform" aria-hidden="true" />
-        <span className="text-xl">{selectedLang.flag}</span>
-        <span className="text-sm font-medium text-white hidden sm:inline">
+        <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-brand-gold group-hover:rotate-12 transition-transform shrink-0" aria-hidden="true" />
+        <span className="text-lg sm:text-xl">{selectedLang.flag}</span>
+        <span className="text-xs sm:text-sm font-medium text-white hidden sm:inline">
           {selectedLang.code.toUpperCase()}
         </span>
         <ChevronDown
           className={cn(
-            'w-4 h-4 text-gray-400 transition-transform duration-300',
+            'w-3 h-3 sm:w-4 sm:h-4 text-gray-400 transition-transform duration-300 ml-auto sm:ml-0',
             isOpen && 'rotate-180'
           )}
           aria-hidden="true"
@@ -84,7 +84,7 @@ const LanguageSelector: React.FC = () => {
       {isOpen && (
         <div
           className={cn(
-            'absolute top-full right-0 mt-2 w-56 bg-brand-navy/98 backdrop-blur-md',
+            'absolute top-full right-0 mt-2 w-full sm:w-56 bg-brand-navy/98 backdrop-blur-md',
             'border border-white/10 rounded-lg shadow-2xl z-50',
             'overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200'
           )}

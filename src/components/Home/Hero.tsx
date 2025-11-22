@@ -42,24 +42,24 @@ const Hero: React.FC = () => {
         'relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center transition-opacity duration-1000',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       )}>
-        <span className="inline-block py-1 px-3 border border-white/20 text-white/60 text-[10px] tracking-[0.3em] uppercase mb-8">
+        <span className="inline-block py-1 px-3 border border-white/20 text-white/60 text-[9px] sm:text-[10px] tracking-[0.3em] uppercase mb-6 md:mb-8">
           Fundación Dominicana • Est. 1996
         </span>
         
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 md:mb-8 leading-tight px-4">
           DIGNIDAD <br/>
           <span className="text-gold-gradient">HUMANA</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-4">
           Transformando capital en infraestructura social tangible. 
-          Una iniciativa respaldada por activos reales y un legado de 28 años.
+          Una iniciativa respaldada por activos reales y un legado de 29 años.
         </p>
         
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
           <a 
             href="#crypto" 
-            className="min-w-[200px] py-4 bg-brand-gold hover:bg-brand-goldlight text-brand-navy font-bold text-xs tracking-[0.15em] uppercase transition-all focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 focus:ring-offset-brand-navy rounded"
+            className="w-full sm:w-auto sm:min-w-[200px] py-3 sm:py-4 px-6 bg-brand-gold hover:bg-brand-goldlight text-brand-navy font-bold text-xs tracking-[0.15em] uppercase transition-all focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 focus:ring-offset-brand-navy rounded text-center"
             onClick={(e) => handleLinkClick(e, '#crypto')}
             aria-label="Ir a la sección de inversión en PRODES"
           >
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
           </a>
           <a 
             href="#nosotros" 
-            className="min-w-[200px] py-4 border border-white/20 hover:bg-white hover:text-brand-navy text-white font-bold text-xs tracking-[0.15em] uppercase transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-navy rounded"
+            className="w-full sm:w-auto sm:min-w-[200px] py-3 sm:py-4 px-6 border border-white/20 hover:bg-white hover:text-brand-navy text-white font-bold text-xs tracking-[0.15em] uppercase transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-navy rounded text-center"
             onClick={(e) => handleLinkClick(e, '#nosotros')}
             aria-label="Conocer nuestra historia"
           >
@@ -76,8 +76,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
       
-      {/* Premium Widgets - Top Right */}
-      <div className="absolute top-20 right-4 sm:right-6 lg:right-8 z-20 flex flex-col gap-3 hidden lg:flex">
+      {/* Premium Widgets - Top Right (Desktop only) */}
+      <div className="absolute top-20 right-4 sm:right-6 lg:right-8 z-20 flex flex-col gap-3 hidden xl:flex">
         <Clock />
         <VisitStats />
       </div>

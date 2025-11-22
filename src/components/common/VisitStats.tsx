@@ -68,43 +68,43 @@ const VisitStats: React.FC<VisitStatsProps> = ({ className }) => {
   }, []);
 
   return (
-    <div className={cn('bg-brand-navy/95 backdrop-blur-sm border border-white/10 rounded-lg p-4 shadow-xl', className)}>
-      <div className="flex items-center gap-3 mb-4">
-        <TrendingUp className="w-5 h-5 text-brand-gold" aria-hidden="true" />
-        <span className="text-xs font-bold tracking-wider text-brand-gold uppercase">
+    <div className={cn('bg-brand-navy/95 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 shadow-xl w-full sm:w-auto', className)}>
+      <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+        <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-brand-gold shrink-0" aria-hidden="true" />
+        <span className="text-[10px] sm:text-xs font-bold tracking-wider text-brand-gold uppercase">
           Estadísticas
         </span>
       </div>
       
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Eye className="w-4 h-4 text-gray-400" aria-hidden="true" />
-            <span className="text-xs text-gray-400 font-light">Total Visitas</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 shrink-0" aria-hidden="true" />
+            <span className="text-[10px] sm:text-xs text-gray-400 font-light">Total Visitas</span>
           </div>
-          <span className="font-mono text-lg font-bold text-white tabular-nums">
+          <span className="font-mono text-base sm:text-lg font-bold text-white tabular-nums">
             {stats.total.toLocaleString()}
           </span>
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-gray-400" aria-hidden="true" />
-            <span className="text-xs text-gray-400 font-light">Hoy</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 shrink-0" aria-hidden="true" />
+            <span className="text-[10px] sm:text-xs text-gray-400 font-light">Hoy</span>
           </div>
-          <span className="font-mono text-lg font-bold text-brand-gold tabular-nums">
+          <span className="font-mono text-base sm:text-lg font-bold text-brand-gold tabular-nums">
             {stats.today.toLocaleString()}
           </span>
         </div>
 
         <div className="flex items-center justify-between pt-2 border-t border-white/10">
-          <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-green-400" aria-hidden="true" />
-            <span className="text-xs text-gray-400 font-light">En Línea</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <Users className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 shrink-0" aria-hidden="true" />
+            <span className="text-[10px] sm:text-xs text-gray-400 font-light">En Línea</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" aria-hidden="true"></div>
-            <span className="font-mono text-lg font-bold text-green-400 tabular-nums">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse" aria-hidden="true"></div>
+            <span className="font-mono text-base sm:text-lg font-bold text-green-400 tabular-nums">
               {stats.online}
             </span>
           </div>

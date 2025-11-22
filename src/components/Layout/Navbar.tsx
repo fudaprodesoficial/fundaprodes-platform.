@@ -139,12 +139,12 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
         role="menu"
         aria-hidden={!isOpen}
       >
-        <div className="flex flex-col p-8 space-y-6">
+        <div className="flex flex-col p-6 sm:p-8 space-y-4 sm:space-y-6">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-xl font-light text-white hover:text-brand-gold tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-brand-gold rounded px-2 py-1"
+              className="text-lg sm:text-xl font-light text-white hover:text-brand-gold tracking-widest uppercase focus:outline-none focus:ring-2 focus:ring-brand-gold rounded px-2 py-1"
               onClick={(e) => {
                 handleLinkClick(e, item.href);
               }}
@@ -153,10 +153,13 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               {item.label}
             </a>
           ))}
+          <div className="pt-4 border-t border-white/10">
+            <LanguageSelector />
+          </div>
           <button
             onClick={handleWalletClick}
             disabled={isLoading}
-            className="mt-8 w-full py-4 bg-brand-gold text-brand-navy font-bold tracking-widest uppercase hover:bg-brand-goldlight transition-colors focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="mt-4 w-full py-3 sm:py-4 bg-brand-gold text-brand-navy font-bold tracking-widest uppercase hover:bg-brand-goldlight transition-colors focus:outline-none focus:ring-2 focus:ring-brand-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
             role="menuitem"
             aria-label={isConnected ? 'Desconectar wallet' : 'Conectar wallet'}
             aria-busy={isLoading}

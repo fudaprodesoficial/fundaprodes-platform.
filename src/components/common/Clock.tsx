@@ -31,17 +31,17 @@ const Clock: React.FC = () => {
   };
 
   return (
-    <div className="bg-brand-navy/95 backdrop-blur-sm border border-white/10 rounded-lg p-4 shadow-xl">
-      <div className="flex items-center gap-3 mb-3">
-        <ClockIcon className="w-5 h-5 text-brand-gold" aria-hidden="true" />
-        <span className="text-xs font-bold tracking-wider text-brand-gold uppercase">
+    <div className="bg-brand-navy/95 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 shadow-xl w-full sm:w-auto">
+      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+        <ClockIcon className="w-4 h-4 sm:w-5 sm:h-5 text-brand-gold shrink-0" aria-hidden="true" />
+        <span className="text-[10px] sm:text-xs font-bold tracking-wider text-brand-gold uppercase">
           Hora Local
         </span>
       </div>
-      <div className="font-mono text-3xl font-bold text-white mb-2 tabular-nums">
+      <div className="font-mono text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2 tabular-nums">
         {formatTime(time)}
       </div>
-      <div className="text-xs text-gray-400 font-light capitalize">
+      <div className="text-[10px] sm:text-xs text-gray-400 font-light capitalize">
         {formatDate(time)}
       </div>
     </div>

@@ -36,20 +36,20 @@ const Programs: React.FC = () => {
           'mb-12 lg:mb-20 transition-opacity duration-1000',
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         )}>
-          <h2 id="programs-heading" className="text-4xl font-bold text-brand-navy mb-6">
+          <h2 id="programs-heading" className="text-3xl sm:text-4xl font-bold text-brand-navy mb-4 sm:mb-6">
             ÁREAS DE INTERVENCIÓN
           </h2>
-          <p className="text-slate-500 max-w-xl text-lg font-light">
+          <p className="text-slate-500 max-w-xl text-base sm:text-lg font-light">
             Nuestros proyectos están diseñados para atacar las causas raíz de la pobreza, no solo sus síntomas.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {programs.map((program, index) => (
             <article
               key={index}
               className={cn(
-                'bg-white p-8 lg:p-10 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group',
+                'bg-white p-5 sm:p-6 md:p-8 lg:p-10 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group',
                 'focus-within:ring-2 focus-within:ring-brand-gold focus-within:shadow-xl',
                 'transition-opacity duration-700',
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -59,19 +59,19 @@ const Programs: React.FC = () => {
               role="article"
               aria-label={`Proyecto: ${program.title}`}
             >
-              <div className="flex justify-between items-start mb-8">
+              <div className="flex justify-between items-start mb-4 sm:mb-6 md:mb-8">
                 <span className="text-xs font-bold text-brand-gold uppercase tracking-wider">
                   Proyecto
                 </span>
                 <ArrowUpRight 
-                  className="w-5 h-5 text-slate-300 group-hover:text-brand-gold transition-colors" 
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-slate-300 group-hover:text-brand-gold transition-colors shrink-0" 
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-brand-navy mb-4 group-hover:translate-x-2 transition-transform">
+              <h3 className="text-xl sm:text-2xl font-bold text-brand-navy mb-3 sm:mb-4 group-hover:translate-x-2 transition-transform">
                 {program.title}
               </h3>
-              <p className="text-slate-500 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-500 font-light leading-relaxed">
                 {program.description}
               </p>
             </article>
