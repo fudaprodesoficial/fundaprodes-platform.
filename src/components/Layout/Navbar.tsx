@@ -11,6 +11,7 @@ interface NavbarProps {
 
 const navItems: NavItem[] = [
   { label: 'FUNDACIÓN', href: '#nosotros' },
+  { label: 'JUNTA DIRECTIVA', href: '#junta-directiva' },
   { label: 'IMPACTO', href: '#areas' },
   { label: 'INVERSIONISTAS', href: '#crypto' },
 ];

@@ -31,17 +31,20 @@ const About: React.FC = () => {
              <h4 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-xs mb-4">
                Sobre Nosotros
              </h4>
-             <h2 id="about-heading" className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-               Veintiocho años construyendo <br className="hidden md:block"/>infraestructura social.
-             </h2>
-             <div className="space-y-6 text-lg text-slate-600 font-light leading-relaxed">
-               <p>
-                 La Fundación Dominicana Pro-Ayuda y Desarrollo a la Mujer Desamparada (FUNDAPRODES) se constituye no solo como una organización benéfica, sino como un vehículo de transformación estructural.
-               </p>
-               <p>
-                 Desde nuestra fundación en 1996 bajo el Decreto Ejecutivo No. 145-96, hemos operado con la precisión de una corporación y el corazón de una familia, focalizando recursos en la erradicación sistémica de la pobreza extrema en el Distrito Nacional.
-               </p>
-             </div>
+            <h2 id="about-heading" className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+              Veintinueve años construyendo <br className="hidden md:block"/>infraestructura social.
+            </h2>
+            <div className="space-y-6 text-lg text-slate-600 font-light leading-relaxed">
+              <p>
+                La Fundación Dominicana Pro-Ayuda y Desarrollo a la Mujer Desamparada (FUNDAPRODES) fue creada el 10 de enero del año 1996, en la ciudad de Santo Domingo, Distrito Nacional, República Dominicana, con registro No. 771, dotada del Registro Nacional de Contribuyente (RNC) no. 4-01-51387-2, obteniendo su personalidad jurídica en fecha 31 de mayo del año 1996, mediante el Decreto del Poder Ejecutivo No. 145-96.
+              </p>
+              <p>
+                Se constituye no solo como una organización benéfica, sino como un vehículo de transformación estructural, operando con la precisión de una corporación y el corazón de una familia, focalizando recursos en la erradicación sistémica de la pobreza extrema en el Distrito Nacional.
+              </p>
+              <p className="font-serif italic text-brand-navy">
+                "Fomentando el derecho de la mujer dominicana a vivir con dignidad"
+              </p>
+            </div>
           </div>
           <div className={cn(
             'relative h-[400px] sm:h-[500px] lg:h-[600px] bg-gray-100 transition-opacity duration-1000 delay-200',
@@ -70,16 +73,22 @@ const About: React.FC = () => {
         >
           <article className="bg-brand-light p-12 lg:p-16 hover:bg-white transition-colors focus-within:bg-white focus-within:ring-2 focus-within:ring-brand-gold">
             <Target className="w-12 h-12 text-brand-gold mb-8" strokeWidth={1} aria-hidden="true" />
-            <h3 className="text-2xl font-bold mb-4">Misión Corporativa</h3>
+            <h3 className="text-2xl font-bold mb-4">Misión</h3>
+            <p className="text-slate-600 font-light leading-relaxed mb-4">
+              Concebir, Formular, elaborar, lograr financiar y desarrollar proyectos sociales que vayan al auxilio, rescate, mejoramiento, fomento y transformación de las precarias condiciones que limitan el espectro de salud, educación, medio ambiente, hábitat, servicios públicos e infraestructura urbana de las zonas vulnerables del territorio nacional expuestas a fenómenos naturales donde habitan sectores de mínimos recursos sometidos a un escenario social de hacinamiento, exclusión social y extrema pobreza.
+            </p>
             <p className="text-slate-600 font-light leading-relaxed">
-              Ejecutar proyectos de alto impacto en hábitat y saneamiento, gestionando recursos con transparencia financiera para maximizar el retorno social de cada inversión.
+              Construir una sociedad más solidaria y servir de apoyo a los estratos de la población mas necesitados que necesiten asistencia para la solución de sus problemas comunitarios y colectivos mas apremiantes, sobre todo en la inserción laboral y en el emprendimiento comercial.
             </p>
           </article>
           <article className="bg-brand-light p-12 lg:p-16 hover:bg-white transition-colors focus-within:bg-white focus-within:ring-2 focus-within:ring-brand-gold">
             <Eye className="w-12 h-12 text-brand-gold mb-8" strokeWidth={1} aria-hidden="true" />
-            <h3 className="text-2xl font-bold mb-4">Visión Estratégica</h3>
+            <h3 className="text-2xl font-bold mb-4">Visión</h3>
+            <p className="text-slate-600 font-light leading-relaxed mb-4">
+              Ser una organización referente en el ámbito nacional por la creación de proyectos innovadores que garanticen que podamos lograr, al mediano plazo, transformar nuestro país en una sociedad mas justa, humana y equitativa, donde cada persona tenga el derecho a una vida digna y a tener sus necesidades básicas cubiertas.
+            </p>
             <p className="text-slate-600 font-light leading-relaxed">
-              Establecer un nuevo estándar en el desarrollo humanitario, integrando tecnología blockchain para garantizar la trazabilidad y eficiencia en la ayuda humanitaria.
+              Apostar por un esfuerzo y trabajo de calidad en un entorno solidario desarrollado sobre la base de un equipo humano altamente competente y motivado, articulado desde una organización moderna en su gestión y profesional en su funcionamiento, para desde la iniciativa y fuerza de voluntad necesarias lograr cambiar el rostro de la actual sociedad dominicana.
             </p>
           </article>
         </div>

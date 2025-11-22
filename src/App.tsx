@@ -8,6 +8,7 @@ import { useScroll } from './hooks/useScroll';
 // Lazy load components for better performance
 const Hero = lazy(() => import('./components/Home/Hero'));
 const About = lazy(() => import('./components/Home/About'));
+const Board = lazy(() => import('./components/Home/Board'));
 const Programs = lazy(() => import('./components/Home/Programs'));
 const Values = lazy(() => import('./components/Home/Values'));
 const CryptoSection = lazy(() => import('./components/Crypto/CryptoSection'));
@@ -40,6 +41,12 @@ export default function App() {
           <section id="nosotros" aria-label="Sobre nosotros">
             <Suspense fallback={<LoadingFallback />}>
               <About />
+            </Suspense>
+          </section>
+
+          <section id="junta-directiva" aria-label="Junta Directiva">
+            <Suspense fallback={<LoadingFallback />}>
+              <Board />
             </Suspense>
           </section>
 

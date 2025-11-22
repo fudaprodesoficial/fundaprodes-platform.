@@ -20,4 +20,11 @@ export interface ValueItem {
 export interface TeamMember {
   name: string;
   role: string;
+  position: string;
+}
+
+export interface BoardMember {
+  name: string;
+  position: string;
+  description?: string;
 }

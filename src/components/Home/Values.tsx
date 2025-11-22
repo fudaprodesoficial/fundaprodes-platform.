@@ -4,12 +4,18 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { cn } from '../../utils/cn';
 
 const values: ValueItem[] = [
-  { id: 1, title: 'DIGNIDAD', description: 'Valor supremo e innegociable.' },
-  { id: 2, title: 'SOLIDARIDAD', description: 'Compromiso activo con el bienestar ajeno.' },
-  { id: 3, title: 'JUSTICIA', description: 'Equidad económica y social.' },
-  { id: 4, title: 'TRANSPARENCIA', description: 'Gestión de recursos auditable.' },
-  { id: 5, title: 'SOSTENIBILIDAD', description: 'Impacto duradero a largo plazo.' },
-  { id: 6, title: 'INTEGRIDAD', description: 'Ética profesional inquebrantable.' },
+  { id: 1, title: 'DIGNIDAD', description: 'El Derecho a la Vida Digna como valor supremo de nuestra inspiración.' },
+  { id: 2, title: 'SOLIDARIDAD', description: 'Valor que nos mueve a ayudar siempre al necesitado.' },
+  { id: 3, title: 'JUSTICIA', description: 'Justicia económica y social como móvil de nuestra labor comunitaria.' },
+  { id: 4, title: 'TRANSPARENCIA', description: 'Valor de honestidad en el uso de los recursos.' },
+  { id: 5, title: 'TRABAJO EN EQUIPO', description: 'Valor que une nuestros esfuerzos y capacidades.' },
+  { id: 6, title: 'SOSTENIBILIDAD', description: 'Valor que garantiza un mejoramiento social duradero.' },
+  { id: 7, title: 'COMPROMISO', description: 'Valor que nos lleva a lograr los objetivos trazados.' },
+  { id: 8, title: 'FLEXIBILIDAD', description: 'Valor que nos permite adaptarnos a los cambios.' },
+  { id: 9, title: 'INTEGRIDAD', description: 'Valor que nos impulsa a hacer lo correcto siempre.' },
+  { id: 10, title: 'RESPONSABILIDAD', description: 'Valor que nos dicta asumir consecuencias.' },
+  { id: 11, title: 'TOLERANCIA', description: 'Valor de respeto a las opiniones o actitudes ajenas.' },
+  { id: 12, title: 'PARTICIPACIÓN', description: 'Valor de integración de todos los involucrados.' },
 ];
 
 const Values: React.FC = () => {
@@ -37,7 +43,7 @@ const Values: React.FC = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-12 lg:gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 lg:gap-x-12 gap-y-12 lg:gap-y-16">
           {values.map((value, index) => (
             <article
               key={value.id}

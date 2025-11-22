@@ -5,12 +5,18 @@ import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { cn } from '../../utils/cn';
 
 const programs: ProjectArea[] = [
-  { title: 'Desarrollo Habitacional', icon: null, description: 'Reconstrucción estructural de viviendas en zonas de riesgo.' },
-  { title: 'Infraestructura Sanitaria', icon: null, description: 'Sistemas de agua potable y drenaje pluvial.' },
-  { title: 'Seguridad Alimentaria', icon: null, description: 'Programas de nutrición infantil y geriátrica.' },
-  { title: 'Gestión Ambiental', icon: null, description: 'Saneamiento urbano y reforestación comunitaria.' },
-  { title: 'Electrificación', icon: null, description: 'Iluminación pública solar para seguridad ciudadana.' },
-  { title: 'Conectividad', icon: null, description: 'Infraestructura peatonal y accesibilidad urbana.' },
+  { title: 'Salud Comunitaria', icon: null, description: 'Proyectos de salud orientados a mejorar las condiciones sanitarias de las comunidades vulnerables.' },
+  { title: 'Vivienda Social', icon: null, description: 'Reconstrucción estructural de viviendas en zonas de riesgo y mejoramiento habitacional.' },
+  { title: 'Seguridad Alimentaria', icon: null, description: 'Programas de nutrición infantil y geriátrica para garantizar alimentación adecuada.' },
+  { title: 'Medio Ambiente', icon: null, description: 'Saneamiento urbano, reforestación comunitaria y gestión de áreas verdes.' },
+  { title: 'Infraestructuras Urbanas', icon: null, description: 'Desarrollo de infraestructura básica para mejorar la calidad de vida urbana.' },
+  { title: 'Drenaje Pluvial', icon: null, description: 'Sistemas de drenaje para prevenir inundaciones y mejorar el saneamiento.' },
+  { title: 'Seguridad Ciudadana', icon: null, description: 'Proyectos orientados a mejorar la seguridad en las comunidades.' },
+  { title: 'Agua Potable', icon: null, description: 'Sistemas de agua potable para garantizar acceso a agua limpia.' },
+  { title: 'Iluminación Pública', icon: null, description: 'Iluminación pública solar para seguridad ciudadana y mejoramiento urbano.' },
+  { title: 'Conectividad Peatonal', icon: null, description: 'Infraestructura peatonal y accesibilidad urbana para movilidad segura.' },
+  { title: 'Áreas Verdes', icon: null, description: 'Creación y mantenimiento de espacios verdes comunitarios.' },
+  { title: 'Desechos Sólidos', icon: null, description: 'Gestión y manejo adecuado de desechos sólidos en las comunidades.' },
 ];
 
 const Programs: React.FC = () => {
